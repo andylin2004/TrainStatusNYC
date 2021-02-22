@@ -8,6 +8,7 @@
 import SwiftUI
 import WidgetKit
 
+
 struct ContentView: View {
     @AppStorage("routesWithIssues", store: UserDefaults(suiteName: "group.com.andylin.service-alerts-swiftui"))
     var routesWithIssuesSaved: Data = Data()
