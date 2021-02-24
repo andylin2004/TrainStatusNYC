@@ -197,6 +197,8 @@ struct ContentView: View {
                     realTime = sortData
                 }.resume()
         }
+        var data = readDataFromCSV(fileName: "Stations", fileType: "csv")
+        print(data)
     }
     
     func save(_ routesWithIssues: [String]){
@@ -204,7 +206,6 @@ struct ContentView: View {
         self.routesWithIssuesSaved = routesWithIssuesSaved
         print("saved \(routesWithIssues.description)")
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
