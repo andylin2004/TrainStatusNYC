@@ -13,6 +13,7 @@
 		420FBE7525DF031F0060F4D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420FBE7425DF031F0060F4D9 /* Assets.xcassets */; };
 		420FBE7825DF031F0060F4D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420FBE7725DF031F0060F4D9 /* Preview Assets.xcassets */; };
 		420FBE8325DF0B060060F4D9 /* gtfs-realtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420FBE8125DF0B060060F4D9 /* gtfs-realtime.pb.swift */; };
+		4239B10825E6951A00A700D2 /* service-alerts-swiftui in Resources */ = {isa = PBXBuildFile; fileRef = 4239B10725E6951A00A700D2 /* service-alerts-swiftui */; };
 		42414BB725E0F0BD00439BA4 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42414BB625E0F0BD00439BA4 /* ListView.swift */; };
 		42F09A7725DF53400072E25F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F09A7625DF53400072E25F /* WidgetKit.framework */; };
 		42F09A7925DF53400072E25F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F09A7825DF53400072E25F /* SwiftUI.framework */; };
@@ -57,6 +58,7 @@
 		420FBE7725DF031F0060F4D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		420FBE7925DF031F0060F4D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		420FBE8125DF0B060060F4D9 /* gtfs-realtime.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gtfs-realtime.pb.swift"; sourceTree = "<group>"; };
+		4239B10725E6951A00A700D2 /* service-alerts-swiftui */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "service-alerts-swiftui"; sourceTree = "<group>"; };
 		42414BB625E0F0BD00439BA4 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		42F09A7525DF53400072E25F /* serviceAlertExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = serviceAlertExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F09A7625DF53400072E25F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 				42F09A9625E068DD0072E25F /* service-alerts-swiftui.entitlements */,
 				420FBE7025DF03160060F4D9 /* service_alerts_swiftuiApp.swift */,
 				420FBE7225DF03160060F4D9 /* ContentView.swift */,
+				4239B10725E6951A00A700D2 /* service-alerts-swiftui */,
 				42414BB625E0F0BD00439BA4 /* ListView.swift */,
 				42F09AA525E0778D0072E25F /* RouteColors.swift */,
 				42F09A9225E03F540072E25F /* RouteShape.swift */,
@@ -251,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4239B10825E6951A00A700D2 /* service-alerts-swiftui in Resources */,
 				420FBE7825DF031F0060F4D9 /* Preview Assets.xcassets in Resources */,
 				420FBE7525DF031F0060F4D9 /* Assets.xcassets in Resources */,
 			);
