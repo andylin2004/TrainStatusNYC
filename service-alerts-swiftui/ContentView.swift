@@ -15,6 +15,7 @@ struct ContentView: View {
     
     @State var thingToLoad: [TransitRealtime_FeedEntity]?
     @State var realTime: Dictionary<String, Dictionary<String, [Int64]>>?
+    @State var stationPairs: Dictionary<String, String>? = [:]
     
     @State var selectedView = 0
     
@@ -197,8 +198,11 @@ struct ContentView: View {
                     realTime = sortData
                 }.resume()
         }
-        var data = readDataFromCSV(fileName: "Stations", fileType: "csv")
-        print(data)
+        let data = readDataFromCSV(fileName: "Stations", fileType: "csv")
+        for station in csv(data: data!){
+            stationPairs!.updateValue(station[5], forKey: station[2])
+        }
+        print(stationPairs)
     }
     
     func save(_ routesWithIssues: [String]){
