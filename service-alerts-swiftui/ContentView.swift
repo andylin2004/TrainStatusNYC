@@ -157,6 +157,12 @@ struct ContentView: View {
     }
     
     func countdownData(){
+        let data = readDataFromCSV(fileName: "Stations", fileType: "csv")
+        for station in csv(data: data!){
+            stationPairs!.updateValue(station[5], forKey: station[2])
+        }
+        print(stationPairs)
+        
         var sortData: Dictionary<String, Dictionary<String, [Int64]>> = [:]
         let sources = ["https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-7", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-jz", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-g", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"]
         
@@ -184,10 +190,13 @@ struct ContentView: View {
                             sortData[stop.tripUpdate.trip.routeID] = [:]
                         }
                         for info in stop.tripUpdate.stopTimeUpdate{
-                            if sortData[stop.tripUpdate.trip.routeID]?.index(forKey: info.stopID) == nil{
-                                sortData[stop.tripUpdate.trip.routeID]?[info.stopID] = []
+                            var stopID = info.stopID
+                            stopID.removeLast()
+                            if sortData[stop.tripUpdate.trip.routeID]?.index(forKey: stationPairs?[stopID] ?? info.stopID) == nil{
+                                sortData[stop.tripUpdate.trip.routeID]?[stationPairs?[stopID] ?? info.stopID] = []
                             }
-                            sortData[stop.tripUpdate.trip.routeID]?[info.stopID]?.append(info.arrival.time == 0 ? info.departure.time : info.arrival.time)
+                            
+                            sortData[stop.tripUpdate.trip.routeID]?[stationPairs?[stopID] ?? info.stopID]?.append(info.arrival.time == 0 ? info.departure.time : info.arrival.time)
                         }
                     }
                     sortData.removeValue(forKey: "")
@@ -198,11 +207,7 @@ struct ContentView: View {
                     realTime = sortData
                 }.resume()
         }
-        let data = readDataFromCSV(fileName: "Stations", fileType: "csv")
-        for station in csv(data: data!){
-            stationPairs!.updateValue(station[5], forKey: station[2])
-        }
-        print(stationPairs)
+        
     }
     
     func save(_ routesWithIssues: [String]){
