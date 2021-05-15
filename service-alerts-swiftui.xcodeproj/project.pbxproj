@@ -15,6 +15,9 @@
 		420FBE8325DF0B060060F4D9 /* gtfs-realtime.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420FBE8125DF0B060060F4D9 /* gtfs-realtime.pb.swift */; };
 		4239B10C25E6A45100A700D2 /* Stations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 4239B10B25E6A45000A700D2 /* Stations.csv */; };
 		42414BB725E0F0BD00439BA4 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42414BB625E0F0BD00439BA4 /* ListView.swift */; };
+		42A2ACD425EA03F5004D0C2B /* nyct-subway.proto in Sources */ = {isa = PBXBuildFile; fileRef = 42A2ACD325EA03F5004D0C2B /* nyct-subway.proto */; };
+		42A2ACDE25EA0531004D0C2B /* gtfs-realtime.proto in Sources */ = {isa = PBXBuildFile; fileRef = 42A2ACDD25EA0531004D0C2B /* gtfs-realtime.proto */; };
+		42A2ACE225EA0565004D0C2B /* nyct-subway.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A2ACE125EA0565004D0C2B /* nyct-subway.pb.swift */; };
 		42F09A7725DF53400072E25F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F09A7625DF53400072E25F /* WidgetKit.framework */; };
 		42F09A7925DF53400072E25F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F09A7825DF53400072E25F /* SwiftUI.framework */; };
 		42F09A7C25DF53400072E25F /* serviceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F09A7B25DF53400072E25F /* serviceAlert.swift */; };
@@ -60,6 +63,9 @@
 		420FBE8125DF0B060060F4D9 /* gtfs-realtime.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "gtfs-realtime.pb.swift"; sourceTree = "<group>"; };
 		4239B10B25E6A45000A700D2 /* Stations.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = Stations.csv; sourceTree = SOURCE_ROOT; };
 		42414BB625E0F0BD00439BA4 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		42A2ACD325EA03F5004D0C2B /* nyct-subway.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = "nyct-subway.proto"; sourceTree = "<group>"; };
+		42A2ACDD25EA0531004D0C2B /* gtfs-realtime.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = "gtfs-realtime.proto"; sourceTree = "<group>"; };
+		42A2ACE125EA0565004D0C2B /* nyct-subway.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "nyct-subway.pb.swift"; sourceTree = "<group>"; };
 		42F09A7525DF53400072E25F /* serviceAlertExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = serviceAlertExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F09A7625DF53400072E25F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		42F09A7825DF53400072E25F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -120,6 +126,7 @@
 		420FBE6F25DF03160060F4D9 /* service-alerts-swiftui */ = {
 			isa = PBXGroup;
 			children = (
+				42A2ACDD25EA0531004D0C2B /* gtfs-realtime.proto */,
 				42F09A9625E068DD0072E25F /* service-alerts-swiftui.entitlements */,
 				420FBE7025DF03160060F4D9 /* service_alerts_swiftuiApp.swift */,
 				420FBE7225DF03160060F4D9 /* ContentView.swift */,
@@ -131,6 +138,8 @@
 				420FBE7425DF031F0060F4D9 /* Assets.xcassets */,
 				420FBE7925DF031F0060F4D9 /* Info.plist */,
 				420FBE7625DF031F0060F4D9 /* Preview Content */,
+				42A2ACD325EA03F5004D0C2B /* nyct-subway.proto */,
+				42A2ACE125EA0565004D0C2B /* nyct-subway.pb.swift */,
 			);
 			path = "service-alerts-swiftui";
 			sourceTree = "<group>";
@@ -318,11 +327,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				420FBE7325DF03160060F4D9 /* ContentView.swift in Sources */,
+				42A2ACDE25EA0531004D0C2B /* gtfs-realtime.proto in Sources */,
 				420FBE8325DF0B060060F4D9 /* gtfs-realtime.pb.swift in Sources */,
 				420FBE7125DF03160060F4D9 /* service_alerts_swiftuiApp.swift in Sources */,
 				42F09AA625E0778D0072E25F /* RouteColors.swift in Sources */,
 				42F09A9325E03F540072E25F /* RouteShape.swift in Sources */,
+				42A2ACD425EA03F5004D0C2B /* nyct-subway.proto in Sources */,
 				42414BB725E0F0BD00439BA4 /* ListView.swift in Sources */,
+				42A2ACE225EA0565004D0C2B /* nyct-subway.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

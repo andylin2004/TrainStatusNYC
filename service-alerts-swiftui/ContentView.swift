@@ -95,7 +95,7 @@ struct ContentView: View {
         var routesWithIssuesUnsaved: [String] = []
 
         var request = URLRequest(url: URL(string: "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")!)
-        request.setValue("1Zww1BJkkqZ0sZvSpgus9uqZ4peUj2u2YqBIFWLd", forHTTPHeaderField: "x-api-key")
+        request.setValue("GrsrRlz7fL3vzMEU1iCmw9MulvuaWGGU78JKcIos", forHTTPHeaderField: "x-api-key")
             
             print(request)
             
@@ -112,7 +112,7 @@ struct ContentView: View {
                 guard let receivedFromJSON = try? TransitRealtime_FeedMessage(jsonUTF8Data: response.jsonUTF8Data()) else{
                     return
                 }
-//                print(receivedFromJSON)
+                print(receivedFromJSON)
                 thingToLoad = receivedFromJSON.entity
                 var thing = 0
                 for _ in 0..<thingToLoad!.endIndex{
@@ -161,14 +161,13 @@ struct ContentView: View {
         for station in csv(data: data!){
             stationPairs!.updateValue(station[5], forKey: station[2])
         }
-        print(stationPairs)
         
         var sortData: Dictionary<String, Dictionary<String, [Int64]>> = [:]
         let sources = ["https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-7", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-jz", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-g", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm", "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace"]
         
         for source in sources{
             var request = URLRequest(url: URL(string: source)!)
-                    request.setValue("1Zww1BJkkqZ0sZvSpgus9uqZ4peUj2u2YqBIFWLd", forHTTPHeaderField: "x-api-key")
+                    request.setValue("GrsrRlz7fL3vzMEU1iCmw9MulvuaWGGU78JKcIos", forHTTPHeaderField: "x-api-key")
                 
 //                print(request)
                 
@@ -179,7 +178,7 @@ struct ContentView: View {
                         // error
                         return
                     }
-                    //print(response)
+//                    print(response)
                     
                     guard let receivedFromJSON = try? TransitRealtime_FeedMessage(jsonUTF8Data: response.jsonUTF8Data()) else{
                         return
@@ -192,6 +191,7 @@ struct ContentView: View {
                         for info in stop.tripUpdate.stopTimeUpdate{
                             var stopID = info.stopID
                             stopID.removeLast()
+                            print(stationPairs?[stopID])
                             if sortData[stop.tripUpdate.trip.routeID]?.index(forKey: stationPairs?[stopID] ?? info.stopID) == nil{
                                 sortData[stop.tripUpdate.trip.routeID]?[stationPairs?[stopID] ?? info.stopID] = []
                             }
