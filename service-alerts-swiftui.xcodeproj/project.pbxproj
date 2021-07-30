@@ -485,7 +485,7 @@
 				CODE_SIGN_ENTITLEMENTS = "service-alerts-swiftui/service-alerts-swiftui.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"service-alerts-swiftui/Preview Content\"";
-				DEVELOPMENT_TEAM = LS9HYC6FV9;
+				DEVELOPMENT_TEAM = QW3PB89WQ9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "service-alerts-swiftui/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -493,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.service-alerts-swiftui";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andy.lin.service-alerts-swiftui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -510,7 +510,7 @@
 				CODE_SIGN_ENTITLEMENTS = "service-alerts-swiftui/service-alerts-swiftui.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"service-alerts-swiftui/Preview Content\"";
-				DEVELOPMENT_TEAM = LS9HYC6FV9;
+				DEVELOPMENT_TEAM = QW3PB89WQ9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "service-alerts-swiftui/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -518,7 +518,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.service-alerts-swiftui";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andy.lin.service-alerts-swiftui";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -532,14 +532,14 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = serviceAlertExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LS9HYC6FV9;
+				DEVELOPMENT_TEAM = QW3PB89WQ9;
 				INFOPLIST_FILE = serviceAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.service-alerts-swiftui.serviceAlert";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andy.lin.service-alerts-swiftui.serviceAlert";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -554,14 +554,14 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = serviceAlertExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LS9HYC6FV9;
+				DEVELOPMENT_TEAM = QW3PB89WQ9;
 				INFOPLIST_FILE = serviceAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andylin.service-alerts-swiftui.serviceAlert";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andy.lin.service-alerts-swiftui.serviceAlert";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
