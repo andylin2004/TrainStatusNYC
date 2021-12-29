@@ -23,18 +23,17 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedView){
             NavigationView{
-                ScrollView{
-                    VStack{
-                        ForEach(thingToLoad ?? [], id: \.self){ thing in
-                            let routes = thing.alert.informedEntity
+                List{
+                    ForEach(thingToLoad ?? [], id: \.self){ thing in
+                        let routes = thing.alert.informedEntity
+                        VStack{
                             HStack{
                                 ForEach(routes, id: \.self){ line in
                                     RouteShape(route: line.routeID, color: routeColors[line.routeID] ?? "#000000", size: 50)
                                 }
                             }
-                            Text("")
+                            Text(thing.alert.headerText.translation.first?.text.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "&#x2022;", with: "•").replacingOccurrences(of: "&nbsp;", with: "").replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression) ?? "")
                             Text(thing.alert.descriptionText.translation.first?.text.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "&#x2022;", with: "•").replacingOccurrences(of: "&nbsp;", with: "").replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression) ?? "")
-                            Text("")
                         }
                     }
                     .toolbar{
