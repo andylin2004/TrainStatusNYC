@@ -36,15 +36,18 @@ struct ContentView: View {
                             Text(thing.alert.descriptionText.translation.first?.text.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "&#x2022;", with: "•").replacingOccurrences(of: "&nbsp;", with: "").replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression) ?? "")
                         }
                     }
-                    .toolbar{
-                        ToolbarItem(placement: .automatic){
-                            Button(action: {serviceChangePull()}, label: {
-                                Image(systemName: "arrow.clockwise")
-                            })
-                        }
-                    }
                 }
                 .navigationBarTitle("Service Changes")
+                .toolbar{
+                    ToolbarItem(placement: .automatic){
+                        Button(action: {serviceChangePull()}, label: {
+                            Image(systemName: "arrow.clockwise")
+                        })
+                    }
+                    ToolbarItem{
+                        Image(systemName: "gear")
+                    }
+                }
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear(perform: serviceChangePull)
