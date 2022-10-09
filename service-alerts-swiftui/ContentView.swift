@@ -18,6 +18,8 @@ struct ContentView: View {
     @State var stationPairs: Dictionary<String, String>? = [:]
     
     @State var selectedView = 0
+    @State var showingSettings = false
+    @AppStorage("apiKey") var apiKey = ""
     
     @ViewBuilder
     var body: some View {
@@ -43,9 +45,28 @@ struct ContentView: View {
                         Button(action: {serviceChangePull()}, label: {
                             Image(systemName: "arrow.clockwise")
                         })
+                        .buttonStyle(.borderless)
                     }
                     ToolbarItem{
-                        Image(systemName: "gear")
+                        Button(action: {
+                            showingSettings.toggle()
+                        }, label: {
+                            Image(systemName: "gear")
+                        })
+                    }
+                }
+            }
+            .sheet(isPresented: $showingSettings){
+                NavigationView{
+                    List{
+                        HStack{
+                            TextField("API Key from the MTA", text: $apiKey)
+                        }
+                    }
+                    .toolbar{
+                        Button("Done"){
+                            showingSettings.toggle()
+                        }
                     }
                 }
             }
@@ -77,7 +98,7 @@ struct ContentView: View {
                         })
                     }
                 }
-                .listStyle(InsetGroupedListStyle())
+                .listStyle(.sidebar)
                 .navigationBarTitle("Countdown Clock")
                 Text("Swipe right or press back to see countdown clock options")
                     .font(.title)
@@ -97,7 +118,7 @@ struct ContentView: View {
         var routesWithIssuesUnsaved: [String] = []
 
         var request = URLRequest(url: URL(string: "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fsubway-alerts")!)
-        request.setValue("GrsrRlz7fL3vzMEU1iCmw9MulvuaWGGU78JKcIos", forHTTPHeaderField: "x-api-key")
+        request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
             
             print(request)
             
@@ -169,7 +190,7 @@ struct ContentView: View {
         
         for source in sources{
             var request = URLRequest(url: URL(string: source)!)
-                    request.setValue("GrsrRlz7fL3vzMEU1iCmw9MulvuaWGGU78JKcIos", forHTTPHeaderField: "x-api-key")
+                    request.setValue(apiKey, forHTTPHeaderField: "x-api-key")
                 
 //                print(request)
                 
