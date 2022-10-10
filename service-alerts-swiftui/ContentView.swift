@@ -236,6 +236,7 @@ struct ContentView: View {
     func save(_ routesWithIssues: [String]){
         guard let routesWithIssuesSaved = try? JSONEncoder().encode(Set(routesWithIssues)) else {return}
         self.routesWithIssuesSaved = routesWithIssuesSaved
+        print(Set(routesWithIssues).customMirror.subjectType)
         print("saved \(routesWithIssues.description)")
     }
 }
