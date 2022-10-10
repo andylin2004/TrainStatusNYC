@@ -36,6 +36,7 @@ struct ContentView: View {
                             }
                             Text(thing.alert.headerText.translation.first?.text.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "&#x2022;", with: "•").replacingOccurrences(of: "&nbsp;", with: "").replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression) ?? "")
                             Text(thing.alert.descriptionText.translation.first?.text.replacingOccurrences(of: "<br>", with: "\n").replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "&#x2022;", with: "•").replacingOccurrences(of: "&nbsp;", with: "").replacingOccurrences(of: "\\s+$", with: "", options: .regularExpression) ?? "")
+//                            Text(thing.alert.activePeriod.description)
                         }
                     }
                 }
@@ -182,7 +183,7 @@ struct ContentView: View {
     func countdownData(){
         let data = readDataFromCSV(fileName: "Stations", fileType: "csv")
         for station in csv(data: data!){
-            stationPairs!.updateValue(station[5], forKey: station[2])
+            stationPairs!.updateValue("\(station[5]) on \(station[3]) \(station[4]) Line", forKey: station[2])
         }
         
         var sortData: Dictionary<String, Dictionary<String, [Int64]>> = [:]
