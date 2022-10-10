@@ -20,7 +20,6 @@ struct Provider: TimelineProvider{
     
     func getSnapshot(in context: Context, completion: @escaping (ServiceChangeEntry) -> Void) {
         guard let data = try? JSONDecoder().decode(Set<String>.self, from: routesWithIssuesSaved) else {return}
-        print(data)
         let entry = ServiceChangeEntry(routesWithIssues: data)
         completion(entry)
     }
@@ -48,30 +47,30 @@ struct WidgetEntryView: View{
         case .systemSmall:
             VStack{
                 Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count) lines with issues")
-                LazyVGrid(columns: [GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20))], spacing: 0){
-                    ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
-                        RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 20)
-                    }
-                }
+//                LazyVGrid(columns: [GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20))], spacing: 0){
+//                    ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
+//                        RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 20)
+//                    }
+//                }
             }
         case .systemMedium:
             VStack{
-            Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count)lines with issues")
-                LazyVGrid(columns: [GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30))], spacing: 10){
-                    ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
-                        RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 30)
-                    }
-                }
+                Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count)lines with issues")
+//                LazyVGrid(columns: [GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30))], spacing: 10){
+//                    ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
+//                        RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 30)
+//                    }
+//                }
             }
         default:
             VStack{
-            Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count) lines with issues")
+                Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count) lines with issues")
                 .font(.title)
-                LazyVGrid(columns: [GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45))], spacing: 10){
-                    ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
-                        RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 45)
-                    }
-                }
+//                LazyVGrid(columns: [GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45))], spacing: 10){
+//                    ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
+//                        RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 45)
+//                    }
+//                }
             }
         }
     }

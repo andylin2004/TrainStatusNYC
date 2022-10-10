@@ -22,7 +22,7 @@
 		42F09A7925DF53400072E25F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F09A7825DF53400072E25F /* SwiftUI.framework */; };
 		42F09A7C25DF53400072E25F /* serviceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F09A7B25DF53400072E25F /* serviceAlert.swift */; };
 		42F09A7F25DF53440072E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F09A7E25DF53440072E25F /* Assets.xcassets */; };
-		42F09A8525DF53440072E25F /* serviceAlertExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42F09A7525DF53400072E25F /* serviceAlertExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		42F09A8525DF53440072E25F /* serviceAlertExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 42F09A7525DF53400072E25F /* serviceAlertExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		42F09A9325E03F540072E25F /* RouteShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F09A9225E03F540072E25F /* RouteShape.swift */; };
 		42F09AA225E077310072E25F /* RouteShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F09A9225E03F540072E25F /* RouteShape.swift */; };
 		42F09AA625E0778D0072E25F /* RouteColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F09AA525E0778D0072E25F /* RouteColors.swift */; };
@@ -40,15 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		42F09A8625DF53440072E25F /* Embed App Extensions */ = {
+		42F09A8625DF53440072E25F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				42F09A8525DF53440072E25F /* serviceAlertExtension.appex in Embed App Extensions */,
+				42F09A8525DF53440072E25F /* serviceAlertExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -193,7 +193,7 @@
 				420FBE6A25DF03160060F4D9 /* Frameworks */,
 				420FBE6B25DF03160060F4D9 /* Resources */,
 				6171271CAA88AFCF558AFE13 /* [CP] Embed Pods Frameworks */,
-				42F09A8625DF53440072E25F /* Embed App Extensions */,
+				42F09A8625DF53440072E25F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -229,7 +229,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					420FBE6C25DF03160060F4D9 = {
 						CreatedOnToolsVersion = 12.4;
