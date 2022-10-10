@@ -11,7 +11,7 @@ import Intents
 
 struct ServiceChangeEntry: TimelineEntry{
     let date = Date()
-    let routesWithIssues: [String]
+    let routesWithIssues: Set<String>
 }
 
 struct Provider: TimelineProvider{
@@ -19,7 +19,8 @@ struct Provider: TimelineProvider{
     var routesWithIssuesSaved: Data = Data()
     
     func getSnapshot(in context: Context, completion: @escaping (ServiceChangeEntry) -> Void) {
-        guard let data = try? JSONDecoder().decode([String].self, from: routesWithIssuesSaved) else {return}
+        guard let data = try? JSONDecoder().decode(Set<String>.self, from: routesWithIssuesSaved) else {return}
+        print(data)
         let entry = ServiceChangeEntry(routesWithIssues: data)
         completion(entry)
     }
@@ -29,9 +30,9 @@ struct Provider: TimelineProvider{
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<ServiceChangeEntry>) -> Void) {
-        guard let data = try? JSONDecoder().decode([String].self, from: routesWithIssuesSaved) else {return}
+        guard let data = try? JSONDecoder().decode(Set<String>.self, from: routesWithIssuesSaved) else {return}
         let entry = ServiceChangeEntry(routesWithIssues: data)
-        let timeline = Timeline(entries: [entry], policy: .atEnd)
+        let timeline = Timeline(entries: [entry], policy: .never)
         completion(timeline)
     }
 }
@@ -46,7 +47,7 @@ struct WidgetEntryView: View{
         switch family{
         case .systemSmall:
             VStack{
-            Text(Array(NSOrderedSet(array: entry.routesWithIssues)).count == 0 ? "No lines with issue" : "\(Array(NSOrderedSet(array: entry.routesWithIssues)).count) lines with issues")
+                Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count) lines with issues")
                 LazyVGrid(columns: [GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20)), GridItem(.fixed(20))], spacing: 0){
                     ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
                         RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 20)
@@ -55,7 +56,7 @@ struct WidgetEntryView: View{
             }
         case .systemMedium:
             VStack{
-            Text(Array(NSOrderedSet(array: entry.routesWithIssues)).count == 0 ? "No lines with issue" : "\(Array(NSOrderedSet(array: entry.routesWithIssues)).count) lines with issues")
+            Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count)lines with issues")
                 LazyVGrid(columns: [GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30)), GridItem(.fixed(30))], spacing: 10){
                     ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in
                         RouteShape(route: entries, color: routeColors[entries] ?? "#000000", size: 30)
@@ -64,7 +65,7 @@ struct WidgetEntryView: View{
             }
         default:
             VStack{
-            Text(Array(NSOrderedSet(array: entry.routesWithIssues)).count == 0 ? "No lines with issue" : "\(Array(NSOrderedSet(array: entry.routesWithIssues)).count) lines with issues")
+            Text(entry.routesWithIssues.count == 0 ? "No lines with issue" : "\(entry.routesWithIssues.count) lines with issues")
                 .font(.title)
                 LazyVGrid(columns: [GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45)), GridItem(.fixed(45))], spacing: 10){
                     ForEach(Array(Set(entry.routesWithIssues)), id: \.self){ entries in

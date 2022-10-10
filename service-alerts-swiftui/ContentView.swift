@@ -10,7 +10,7 @@ import WidgetKit
 
 
 struct ContentView: View {
-    @AppStorage("routesWithIssues", store: UserDefaults(suiteName: "group.com.andylin.service-alerts-swiftui"))
+    @AppStorage("routesWithIssues", store: UserDefaults(suiteName: "group.com.andy.lin.service-alerts-swiftui"))
     var routesWithIssuesSaved: Data = Data()
     
     @State var thingToLoad: [TransitRealtime_FeedEntity]?
@@ -41,13 +41,13 @@ struct ContentView: View {
                 }
                 .navigationBarTitle("Service Changes")
                 .toolbar{
-                    ToolbarItem(placement: .automatic){
+                    ToolbarItem(placement: .navigationBarLeading){
                         Button(action: {serviceChangePull()}, label: {
                             Image(systemName: "arrow.clockwise")
                         })
                         .buttonStyle(.borderless)
                     }
-                    ToolbarItem{
+                    ToolbarItem(placement: .navigationBarTrailing){
                         Button(action: {
                             showingSettings.toggle()
                         }, label: {
@@ -176,7 +176,7 @@ struct ContentView: View {
                 }
                 save(routesWithIssuesUnsaved)
             }.resume()
-        WidgetCenter.shared.reloadTimelines(ofKind: "service_change_overall_widget")
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     func countdownData(){
@@ -234,7 +234,7 @@ struct ContentView: View {
     }
     
     func save(_ routesWithIssues: [String]){
-        guard let routesWithIssuesSaved = try? JSONEncoder().encode(routesWithIssues) else {return}
+        guard let routesWithIssuesSaved = try? JSONEncoder().encode(Set(routesWithIssues)) else {return}
         self.routesWithIssuesSaved = routesWithIssuesSaved
         print("saved \(routesWithIssues.description)")
     }

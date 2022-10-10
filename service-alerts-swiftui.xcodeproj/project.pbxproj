@@ -42,7 +42,7 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		42F09A8625DF53440072E25F /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
@@ -486,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"service-alerts-swiftui/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "service-alerts-swiftui/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -514,6 +515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"service-alerts-swiftui/Preview Content\"";
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "service-alerts-swiftui/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -539,6 +541,7 @@
 				CODE_SIGN_ENTITLEMENTS = serviceAlertExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = serviceAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -562,6 +565,7 @@
 				CODE_SIGN_ENTITLEMENTS = serviceAlertExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QW3PB89WQ9;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = serviceAlert/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
